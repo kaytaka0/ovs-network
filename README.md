@@ -9,10 +9,20 @@
 - router4で`ip route add 10.0.1.0/24 via 10.0.3.1 dev eth0`とした。
 - router1->router4への`ping`が通った！
 
-- 
 
-#### ip_forward確認コマンド
+### ファイル
+
+- [check_connection](./check_connection.sh) ルータ同士の疎通確認用スクリプト
+- [create_routers](./create_routers.sh) ルータ(dockerコンテナ)とスイッチ(Open vSwitch)の作成
+- [del_ports](./del_ports.sh) コンテナに割り当てたNICの削除
+
+### ip_forward確認コマンド
 ```bash
 [root@3c4c80f60d77 /]# sysctl net.ipv4.ip_forward
 net.ipv4.ip_forward = 1
 ```
+
+## 参考記事
+
+- [ネットワーク初心者の新卒がDockerでネットワークの勉強をしてみた](https://ameblo.jp/principia-ca/entry-12103919307.html)
+- [スタティックルートの設定例 ～基本中の基本～](https://www.n-study.com/iprouting/cisco-static-route-example-the-very-basic/)
