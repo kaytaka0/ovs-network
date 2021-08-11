@@ -2,7 +2,9 @@
 
 - vyOS使いたかったがARMマシンに対応したコンテナの作成方法がわからなかった
 - 結局CentOSのコンテナでルーティング
+- そもそもルーティングに必要なソフトウェアが何なのかわからない状態から開始
 - ルータとして動作させるためにip_forward機能を有効にする必要があった`docker run --sysctl net.ipv4.ip_forward=1 ...`
+- `--sysctl`はコンテナ内のカーネルパラメータを設定するためのオプション
 - 静的ルーティングのため`ip route add`でそれぞれのルータにルーティングテーブルを設定していく
 - router1で`ip route add 10.0.3.0/24 via 10.0.1.2 dev eth0`として、router1->router4の通信ができるはずと思い`ping`で疎通確認するが、返信が返ってこない。。。
 - router4->router1への経路を設定できていないからと気づくのに１週間かかる。
@@ -15,6 +17,7 @@
 - [check_connection](./check_connection.sh) ルータ同士の疎通確認用スクリプト
 - [create_routers](./create_routers.sh) ルータ(dockerコンテナ)とスイッチ(Open vSwitch)の作成
 - [del_ports](./del_ports.sh) コンテナに割り当てたNICの削除
+- [Dockerfile](./Dockerfile) ルータコンテナのDockerfile
 
 ### ip_forward確認コマンド
 ```bash
