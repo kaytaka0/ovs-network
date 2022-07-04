@@ -1,5 +1,19 @@
 # Docker+Open vSwitchでネットワーク勉強用の環境を作る
 
+## これは何?
+Docker+Open vSwitchを使用して，ローカル環境上に仮想ルータと仮想スイッチのネットワークを構成するためのスクリプトです．
+
+スクリプトによって作成されるネットワーク
+
+![network](./img/ovs-network.png)
+
+
+
+## 環境作成時のメモ
+- prerequisites
+  - Docker [official site](https://www.docker.com/)
+  - Open vSwitch [official site](https://www.openvswitch.org/)
+  - ovs-docker [github](https://github.com/openvswitch/ovs/blob/master/utilities/ovs-docker)
 - vyOS使いたかったがARMマシンに対応したコンテナの作成方法がわからなかった
 - 結局CentOSのコンテナでルーティング
 - そもそもルーティングに必要なソフトウェアが何なのかわからない状態から開始
@@ -12,14 +26,14 @@
 - router1->router4への`ping`が通った！
 
 
-### ファイル
+## ファイル
 
 - [check_connection](./check_connection.sh) ルータ同士の疎通確認用スクリプト
 - [create_routers](./create_routers.sh) ルータ(dockerコンテナ)とスイッチ(Open vSwitch)の作成
-- [del_ports](./del_ports.sh) コンテナに割り当てたNICの削除
+- [delete_ports](./delete_ports.sh) コンテナに割り当てたNICの削除
 - [Dockerfile](./Dockerfile) ルータコンテナのDockerfile
 
-### ip_forward確認コマンド
+## ip_forward確認コマンド
 ```bash
 [root@3c4c80f60d77 /]# sysctl net.ipv4.ip_forward
 net.ipv4.ip_forward = 1
