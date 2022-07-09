@@ -39,6 +39,10 @@ Docker+Open vSwitchを使用して，ローカル環境上に仮想ルータと�
 net.ipv4.ip_forward = 1
 ```
 
+## TODO
+
+- 仮想ルータの部分をCentOSコンテナからFRR (Free Range Routing) に移行する
+
 ## 参考記事
 
 - [ネットワーク初心者の新卒がDockerでネットワークの勉強をしてみた](https://ameblo.jp/principia-ca/entry-12103919307.html)
