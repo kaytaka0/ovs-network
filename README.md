@@ -42,6 +42,7 @@ net.ipv4.ip_forward = 1
 ## TODO
 
 - 仮想ルータの部分をCentOSコンテナからFRR (Free Range Routing) に移行する
+- ovs-docker導入方法の説明追記
 
 ## 参考記事
 
